@@ -277,6 +277,7 @@ function run(){
 var db = openDatabase('testdb', '1.0', 'Test', 1024 * 1024);
 
 function exp() {
+	alert("in exp");
     spray_to_high();
 
     db.transaction(function (tx) {
