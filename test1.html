@@ -15,12 +15,13 @@ function gc() {
 }
 var a = [1,{toString:function(){
  a[2] = {};
- for(var i=0;i<0x10;i++){
+ for(var i=0;i<0x1;i++){
  gc();
  }
  return "aaa";
 }}, [1,2,3]]
 a.sort();
+alert("after sort");
 alert(a[1].toString());
 
 </script>
