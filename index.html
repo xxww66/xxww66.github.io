@@ -15,7 +15,8 @@ function gc() {
 function sleep(d){
   for(var t = Date.now();Date.now() - t <= d;);
 }
-alert(23)
+try{
+alert(223)
 var c = new Array(0x1000)
 var b = {'a':1,'b':2, 'c':3}
 var a = [b,{toString:function(){
@@ -30,7 +31,7 @@ var a = [b,{toString:function(){
 	c[j] = {'a':7,'b':2, 'c':3}
 	//c[j].toString = function(){alert('ok'); return '666'}
  }
-this.toString = null
+this.toString = function(){return '123'}
  return "aaa";
 }}, 2]
 a.sort();
@@ -38,4 +39,5 @@ alert(a[0]);
 alert(a[1]);
 alert(a[2]);
 //alert(a[3]);
+}catch(e){alert(e)}
 </script>
