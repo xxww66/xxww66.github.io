@@ -69,7 +69,7 @@ try{
 //var x = new Uint32Array(10)
 //alert(x)
 //postMessage('', '*', [x.buffer])
-//alert(x)
+alert(123)
             var c = document.createElement("canvas");
             var gl = c.getContext("2d");
                 var y = gl.createImageData(1, 0x1000)
@@ -79,6 +79,9 @@ alert(y.data)
 alert(y.data.length)
 alert(y.data.buffer)
 postMessage('', '*', [y.data.buffer])
-alert(y)
+alert(y.height)
+    alert(y.weight)
+   alert(y.data)
+    alert(y.data.length)
 }catch(e){alert(e)}
 </script>
