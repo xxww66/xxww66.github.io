@@ -6,7 +6,7 @@ function gc() {
         var gl = c.getContext("2d");
 
         for (var i = 0; i < 2; i++) {
-            var gggg = gl.createImageData(1, 0x100000)
+            var gggg = gl.createImageData(1, 0x1000)
         }
     } catch (e) {
 
@@ -22,7 +22,9 @@ var a = [1,{toString:function(){
  a[2] = {};
  b = null
  //for(var i=0;i<0x10;i++){
+ alert("before gc");
  gc();
+ alert("after gc");
  //}
  //sleep(1000)
  //alert(111)
