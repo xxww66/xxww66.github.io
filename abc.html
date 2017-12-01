@@ -1,0 +1,16 @@
+<script>
+try{
+var x = new Uint32Array(10)
+alert(x)
+postMessage('', '*', [x.buffer])
+alert(x)
+
+            var c = document.createElement("canvas");
+            var gl = c.getContext("2d");
+                var y = gl.createImageData(1, 0x1000)
+                
+alert(y)
+postMessage('', '*', [y.data.buffer])
+alert(y)
+}catch(e){alert(e)}
+</script>
