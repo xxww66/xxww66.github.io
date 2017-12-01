@@ -32,7 +32,6 @@ var a = [1,{toString:function(){
 	c[j] = new Error()
 	c[j].toString = function(){alert('ok'); return '666'}
  }
-this.toString = null
  return "aaa";
 }}, b, 2]
 a.sort();
