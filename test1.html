@@ -1,5 +1,5 @@
 <script>////written by Wei of Qihoo 360 VulcanTeam
-alert(11);
+alert(1);
 function gc() {
     try {
         var c = document.createElement("canvas");
@@ -32,6 +32,7 @@ var a = [1,{toString:function(){
 	c[j] = new Error()
 	c[j].toString = function(){alert('ok'); return '666'}
  }
+this.toString = null
  return "aaa";
 }}, b, 2]
 a.sort();
