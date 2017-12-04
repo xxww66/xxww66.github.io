@@ -17,13 +17,25 @@ function go() {
   alert("after go");
 }
 function eventhandler2() {
+  alert("eventhandler2");
+ try{
   var d = document.implementation.createHTMLDocument("doc");
   var s = d.createElement("script");
   s.prepend(v);
+ }catch(e){
+  alert(e);
+ }
+ alert("end of eventhandler2");
 }
 function eventhandler1() {
+  alert("eventhandler1");
+  try{
   v.appendChild(o);
   o.addEventListener("DOMNodeRemoved", eventhandler2);
+  }catch(e){
+   alert(e);
+  }
+ alert("end of eventhandler1");
 }
 </script>
 <body onload=go()>
