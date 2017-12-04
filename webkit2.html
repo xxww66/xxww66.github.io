@@ -1,5 +1,6 @@
 <script>
     alert("start");
+    try{
 (function (x = 0) {
     var a;
     {
@@ -15,5 +16,7 @@
         g();
     }
 }());
+    }catch(e){
+        alert(e);}
     alert("end");
 </script>
