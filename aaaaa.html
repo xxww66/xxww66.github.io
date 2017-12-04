@@ -1,7 +1,6 @@
 <body>
 <script>
-alert("start");
-try{
+
 let f = document.body.appendChild(document.createElement('iframe'));
 let g = f.contentDocument.body.appendChild(document.createElement('iframe'));
 g.contentWindow.onunload = () => {
@@ -18,9 +17,6 @@ g.contentWindow.onunload = () => {
 };
 
 f.src = 'about:blank';
-}catch(e){
-alert(e);
-}
-alert("end");
+
 </script>
 </body>
