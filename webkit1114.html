@@ -1,0 +1,35 @@
+<script>
+function freememory() {
+  var a;
+  for(var i=0;i<100;i++) {
+    a = new Uint8Array(1024*1024);
+  }
+}
+function f1() {
+ alert("f1");
+ try{
+  var iframe = document.getElementById("iframe");
+  iframe.srcdoc = "x";
+  window.frames.event = window.event;
+  freememory();
+  }catch(e){
+  alert(e);
+  }
+}
+function f2() {
+  alert("f2");
+  try{
+  var h = new XMLHttpRequest();
+  h.onreadystatechange = f1;
+  h.open("foo","1");
+  var e = window.event;
+  e.initEvent("1",true,true);
+  e.currentTarget.click();
+  }catch(e){
+  alert(e);
+  }
+}
+</script>
+</head>
+<body onload=f1()>
+<iframe id="iframe" onload="f2()"></iframe>
