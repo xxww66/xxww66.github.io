@@ -1,0 +1,22 @@
+<style>
+#colgrp { display: table-footer-group; }
+.class1 { text-transform: capitalize; display: -webkit-box; }
+</style>
+<script>
+function go() {
+  alert("before go");
+  textarea.setSelectionRange(30,1);
+  option.defaultSelected = true;
+  col.setAttribute("aria-labeledby", "link");
+  alert("after go");
+}
+</script>
+<body onload=go()>
+<link id="link">
+<table>
+<colgroup id="colgrp">
+<col id="col" tabindex="1"></col>
+<thead class="class1">
+<th class="class1">
+<textarea id="textarea" readonly="readonly"></textarea>
+<option id="option"></option>
