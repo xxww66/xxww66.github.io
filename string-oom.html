@@ -1,22 +1,6 @@
 <script>
 alert("start");
-try{
-function createStringWithRepeatedChar(c, multiplicity) {
-    while (c.length < multiplicity)
-        c += c;
-    c = c.substring(0, multiplicity);
-    return c;
-}
 
-var x = "1";
-var y = "2";
-x = createStringWithRepeatedChar(x, 1 << 12);
-y = createStringWithRepeatedChar(y, (1 << 20) + 1);
-
-eval("x.replace(/\\d/g, y)");
-}catch(e){
-alert(e);
-}
 
 alert("end");
 </script>
