@@ -22,7 +22,7 @@ function createStringWithRepeatedChar(c, multiplicity) {
     return c;
 }
 var x = "1";
-var y = "\u0000\u8000";
+var y = "\u8000\u0000";
 var array=new Array(0x100);
 var mystr=createStringWithRepeatedChar("M",(1 << 16) );
 y = createStringWithRepeatedChar(y,(1 << 16) );
