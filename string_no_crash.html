@@ -1,6 +1,6 @@
 <script>
 
-alert("start3");
+alert("start4");
 function neuter(ab) {
 
     postMessage("", "*", [ab]);
@@ -85,8 +85,11 @@ array[i]=0;
 
 function myfunc(){
 gc();
+    try{
 eval("x.replace(/\\d/g, y)");
-
+    }catch(e){
+     alert(e);   
+    }
 alert("ok");
 
 var a=prompt("addr");
