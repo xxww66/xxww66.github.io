@@ -1,5 +1,5 @@
 <script>	
-alert("start");
+alert("start1");
 function gc() {
     try {
         var c = document.createElement("canvas");
@@ -44,5 +44,19 @@ arr[i] = c.fontsize(1);
 var s1 = c.fontsize(1) ;
 x.replace(/\d/g, s1);
 alert("ok");
-
+var a=0;
+var b="";
+while(1){
+a=prompt("addr");
+b="";
+if(a==0){
+ break;   
+}
+a-=0x80000000;
+a=a/2;
+b+=s1.charCodeAt(a).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+1).toString(16);
+alert(b);
+}
 </script>
