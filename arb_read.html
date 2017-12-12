@@ -1,7 +1,13 @@
 <script>	
-alert("start with uint8 value:0xA9A");
+alert("start with uint8 value:0xA10A");
         //var s_size = 0x10000;
-        var v1 = new Uint8Array(0x1);
+        var v1 = new Uint8Array(0x7);
+        v[0] = 0xaa
+        v[1] = 0xbb
+        v[2] = 0xcc
+        v[3] = 5
+        v[4] = 6
+        v[5] = 7
         var v2 = 0x666
     var cnt = 0x1e00//(s_size-0x14)/8;
     //alert(1)
@@ -112,6 +118,14 @@ b+=" ";
 b+=s1.charCodeAt(a+2).toString(16);
 b+=" ";
 b+=s1.charCodeAt(a+3).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+4).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+5).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+6).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+7).toString(16);      
 alert(b);
 }
 </script>
