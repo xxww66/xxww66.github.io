@@ -1,5 +1,5 @@
 <script>	
-alert("start3");
+alert("start4");
 function gc() {
     try {
         var c = document.createElement("canvas");
@@ -67,9 +67,8 @@ var spray=new Array(0x800);
 for(var i=0;i<spray.length;i+=2){
  spray[i]=new Array(0x1e00);
  spray[i+1]=new Uint32Array(0x10000/4);
- for(var j=0;j<0x10000/4;j+=2){
-  spray[i+1][j]=j+0xAA000000; 
-  spray[i+1][j+1]=i+0xBB000000;
+ for(var j=0;j<0x10000/4;j++){
+  spray[i+1][j]=j<<12+i;
  }
  for(var j=0;j<0x1e00;j+=2){
   spray[i][j]=arrcvs;
