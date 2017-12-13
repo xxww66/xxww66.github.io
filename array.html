@@ -1,5 +1,5 @@
 <script>	
-alert("start32");
+alert("start33");
 function func(){
 for(var i=0;i<0x1000;i++){ 
 
@@ -96,7 +96,30 @@ alert("ok");
 
 var a=0;
 var b="";
-
+while(1){
+a=prompt("addr");
+b="";
+if(a==0){
+ break;   
+}
+a=a/2;
+b+=s1.charCodeAt(a).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+1).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+2).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+3).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+4).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+5).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+6).toString(16);
+b+=" ";
+b+=s1.charCodeAt(a+7).toString(16);      
+alert(b);
+}
  a=0x50000000/2;
 while(s1.charCodeAt(a)!=0xAA00){
  a+=1;
