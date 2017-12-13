@@ -1,5 +1,5 @@
 <script>	
-alert("start12");
+alert("start13");
 var spray=new Array(0x800);
 var tmp;
  for(var i=0;i<spray.length;i+=2){
@@ -7,7 +7,7 @@ var tmp;
  spray[i+1]=new Uint32Array(0x10000/4);
   tmp=spray[i+1];
   for(var j=0;j<0x10000/4;j++){
-   tmp[j]=j<<12+i;
+   tmp[j]=(j<<12)+i;
   }
   tmp[0]=i+1;
   tmp=spray[i];
